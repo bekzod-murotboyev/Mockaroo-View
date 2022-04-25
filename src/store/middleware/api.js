@@ -14,8 +14,8 @@ const api = ({dispatch}) => (next) => (action) => {
     let headers = token ? {'Authorization': 'Bearer ' + token} : ''
 
     axios({
-        // baseURL:'http://reactive-mockaroo.us-east-1.elasticbeanstalk.com/api/',
-        baseURL: 'http://localhost:8080/api/',
+        baseURL:'http://reactive-mockaroo.us-east-1.elasticbeanstalk.com/api/',
+        // baseURL: 'http://localhost:8080/api/',
         url,
         method,
         data,
