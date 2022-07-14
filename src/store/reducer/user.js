@@ -31,6 +31,7 @@ const slice = createSlice({
         },
         onFail: (state, {payload}) => {
             state.errors = payload
+            console.log(payload)
             toast.error(payload.message, {autoClose: 1000})
             clear()
         }

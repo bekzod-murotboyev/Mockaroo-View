@@ -1,12 +1,18 @@
-
-
 function AvFormLogin({login}) {
 
     function doLogin() {
-        login({
-            email: document.getElementById('emailL').value,
-            password: document.getElementById('passwordL').value,
-        })
+        let email = document.getElementById('emailL')
+        let password = document.getElementById('passwordL')
+
+        if (email.value && password.value)
+            login({
+                email: email.value,
+                password: password.value
+            })
+        else {
+                email.style.borderColor =email.value?'green':'red'
+                password.style.borderColor = password.value?'green':'red'
+        }
     }
 
     return <div>
@@ -18,7 +24,8 @@ function AvFormLogin({login}) {
         </div>
         <div className="row">
             <div className="col-md-12 m-2 mb-0">
-                <button onClick={() => doLogin()} className="btn btn-outline-info border-0 rounded-pill text-brand-color">Login
+                <button onClick={() => doLogin()}
+                        className="btn btn-outline-info border-0 rounded-pill text-brand-color">Login
                 </button>
             </div>
         </div>

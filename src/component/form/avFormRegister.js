@@ -1,17 +1,25 @@
-
 function AvFormRegister({register}) {
 
     function registration() {
+        let name = document.getElementById('nameR')
+        let email = document.getElementById('emailR')
         let pass = document.getElementById('passwordR')
         let prePass = document.getElementById('prePasswordR')
-        if (pass.value === prePass.value)
-            register({
-                name: document.getElementById('nameR').value,
-                email: document.getElementById('emailR').value,
-                password: pass.value,
-            })
-        else
-            prePass.style.borderColor = 'red'
+        if (name.value && email.value && pass.value && prePass.value)
+            if (pass.value === prePass.value)
+                register({
+                    name: name.value,
+                    email: email.value,
+                    password: pass.value,
+                })
+            else
+                prePass.style.borderColor = 'red'
+        else {
+             name.style.borderColor =name.value?'green':'red'
+             email.style.borderColor =email.value?'green':'red'
+             pass.style.borderColor =pass.value?'green':'red'
+             prePass.style.borderColor =prePass.value?'green':'red'
+        }
     }
 
     return <div>
